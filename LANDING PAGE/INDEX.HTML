@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyDear Pet Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #ffd6e8, #ffb3d9);
+      color: #6a1b4d; /* deep pink/purple */
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #f48fb1, #ec407a);
+      padding: 15px 50px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    header .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #fff0f6;
+      letter-spacing: 1.2px;
+    }
+
+    nav a {
+      color: #fff0f6;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff80ab;
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 35px 25px;
+      min-height: 60vh;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+      max-width: 900px;
+      margin: 0 auto 35px auto;
+      background: #fff0f6; /* very light pink */
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
+    }
+
+    /* About section always visible on load */
+    #about {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: none !important;
+      margin-top: 100px; /* To avoid header overlap */
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 2.3em;
+      margin-bottom: 18px;
+      color: #ad1457; /* dark pink */
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 0 1px 2px #fce4ec;
+    }
+
+    .section-text {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.65;
+      color: #6a1b4d;
+      font-weight: 500;
+    }
+
+    ul.points {
+      max-width: 720px;
+      margin: 25px auto;
+      list-style: none;
+      padding-left: 0;
+      color: #8e24aa;
+      font-weight: 500;
+    }
+
+    ul.points li {
+      margin-bottom: 12px;
+      background: #f8bbd0;
+      padding: 12px 18px;
+      border-radius: 10px;
+      color: #4a145b;
+      box-shadow: 0 1px 6px rgba(173, 20, 87, 0.3);
+      transition: background 0.3s ease;
+    }
+
+    ul.points li:hover {
+      background: #f48fb1;
+      color: #fff0f6;
+      cursor: default;
+    }
+
+    form {
+      max-width: 520px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border: 2px solid #f48fb1;
+      border-radius: 12px;
+      font-size: 1.1em;
+      color: #6a1b4d;
+      font-weight: 500;
+      transition: border-color 0.3s ease;
+      background: #fff0f6;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #c48dad;
+      font-style: italic;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ad1457;
+      outline: none;
+      background: #fce4ec;
+    }
+
+    button {
+      padding: 14px;
+      background: #ad1457;
+      color: #fff0f6;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.4s ease;
+      box-shadow: 0 4px 15px rgba(173, 20, 87, 0.5);
+    }
+
+    button:hover {
+      background: #8e0d46;
+      box-shadow: 0 6px 20px rgba(173, 20, 87, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MyDear Pet Store</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#tips">Tips</a>
+    <a href="#faq">FAQs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about" class="reveal">
+  <h2 class="section-title">About Us</h2>
+  <p class="section-text">
+    Welcome to MyDear Pet Store! We are dedicated to making pet parenting joyful and easy.
+    Our mission is to provide the best products and care advice to keep your furry, feathered, and scaled friends happy and healthy.
+  </p>
+  <ul class="points">
+    <li>Over 10 years of experience in pet care and nutrition.</li>
+    <li>Trusted by thousands of happy pet owners across the community.</li>
+    <li>We treat your pets like family, offering personalized care and expert advice.</li>
+    <li>Continuous research to bring you innovative and safe pet products.</li>
+    <li>Committed to supporting pet adoption and animal welfare organizations.</li>
+  </ul>
+</section>
+
+<section id="products" class="reveal">
+  <h2 class="section-title">Our Products</h2>
+  <p class="section-text">
+    Discover a wide variety of premium pet products tailored for all types of pets and needs.
+  </p>
+  <ul class="points">
+    <li>High-quality nutritious food for dogs, cats, birds, reptiles, and more.</li>
+    <li>Durable and fun toys that stimulate your pet’s mind and body.</li>
+    <li>Comfortable beds, collars, leashes, and fashion accessories.</li>
+    <li>Grooming essentials including brushes, shampoos, and hygiene kits.</li>
+    <li>Specialty products for pets with dietary restrictions and allergies.</li>
+  </ul>
+</section>
+
+<section id="services" class="reveal">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-text">
+    We provide a variety of services aimed at promoting your pet’s well-being and happiness:
+  </p>
+  <ul class="points">
+    <li>Professional grooming with gentle and loving care.</li>
+    <li>On-site veterinary consultations and health checkups.</li>
+    <li>Personalized nutrition planning and product recommendations.</li>
+    <li>Training workshops for pet behavior and obedience.</li>
+    <li>Emergency pet care support and advice.</li>
+  </ul>
+</section>
+
+<section id="testimonials" class="reveal">
+  <h2 class="section-title">Testimonials</h2>
+  <p class="section-text">
+    “MyDear Pet Store is a blessing! The staff is knowledgeable and friendly, and my dog absolutely loves the toys and grooming service. Highly recommend!” – Priya M.
+  </p>
+  <p class="section-text">
+    “Excellent products and timely delivery. Their advice helped me with my cat’s special diet, and she’s healthier than ever.” – Rahul S.
+  </p>
+  <p class="section-text">
+    “I appreciate how MyDear supports animal adoption. Their community events are wonderful, and the services are top-notch.” – Anjali K.
+  </p>
+</section>
+
+<section id="tips" class="reveal">
+  <h2 class="section-title">Pet Care Tips</h2>
+  <ul class="points">
+    <li>Keep fresh water available at all times to keep your pet hydrated.</li>
+    <li>Provide regular exercise and playtime to maintain physical health.</li>
+    <li>Schedule regular veterinary checkups for early detection of health issues.</li>
+    <li>Maintain proper grooming to prevent skin infections and matting.</li>
+    <li>Offer a balanced diet tailored to your pet’s age and breed.</li>
+  </ul>
+</section>
+
+<section id="faq" class="reveal">
+  <h2 class="section-title">FAQs</h2>
+  <ul class="points">
+    <li><strong>Do you offer delivery?</strong> Yes, free delivery on orders over ₹500 within the city limits.</li>
+    <li><strong>Are your products organic?</strong> Many of our pet foods and grooming products are organic and vet-approved.</li>
+    <li><strong>Can I return a product?</strong> Yes, returns are accepted within 7 days if the product is unopened and in original condition.</li>
+    <li><strong>Do you have loyalty programs?</strong> Yes! Join our loyalty program to earn points and discounts on future purchases.</li>
+  </ul>
+</section>
+
+<section id="contact" class="reveal">
+  <h2 class="section-title">Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<script>
+  const revealSections = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    revealSections.forEach(section => {
+      if(section.id === 'about') return;  // About section always visible
+
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < windowHeight - 100) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>
